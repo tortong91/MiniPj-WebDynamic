@@ -1,0 +1,21 @@
+@(myForm:Form[ProductNews])
+@import helper._;
+<html>
+    <head>
+        <title>
+            สินค้ามาใหม่
+        </title>
+    </head>
+    <body>
+    @helper.form(action = routes.ProduceNewsController.update() ,'enctype->"multipart/form-data"){
+        @inputText(myForm("number"), '_label->"รหัสยา :", 'size->"10" ,'maxlength->"4" ,'required->"required")
+        @inputText(myForm("name"),'_label->"ชื่อยา :",'size->"60",'maxlength->"50",'required->"required")
+        @textarea(myForm("details"),'_label->"สรรพคุณ :",'size->"210",'maxlength->"200",'required->"required")
+        @inputDate(myForm("date"),'_label->"ว/ด/ป")
+        @inputFile(myForm("picture"),'_label->"รูปภาพประกอบ")
+        <input type="submit" value="บันทึก" class="btn-success">
+        <input type="reset" value="ลบข้อมูล" class="btn-danger">
+        }
+
+    </body>
+</html>

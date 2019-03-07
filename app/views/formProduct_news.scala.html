@@ -1,0 +1,24 @@
+@(myForm:Form[ProductNews])
+@import helper._;
+<html>
+    <head>
+        <title>
+            สินค้ามาใหม่
+        </title>
+    </head>
+    <body>
+        <h2><font style="color: #9acfea;"><b>เพิ่มPomotion</b></font></h2>
+        <h5><font style="color: red;"><b>**เพิ่มข้อมูลโปโมชั่น</b></font></h5>
+        <br>
+    @helper.form(action = routes.ProduceNewsController.input() ,'enctype->"multipart/form-data"){
+        @inputText(myForm("number"), '_label->"หมายเลขโปรโมชัน :", 'size->"10" ,'maxlength->"4" ,'required->"required")
+        @inputText(myForm("name"),'_label->"โปรโมชั่น :",'size->"60",'maxlength->"50",'required->"required")
+        @textarea(myForm("details"),'_label->"เนื้อหา :",'size->"210",'maxlength->"200",'required->"required")
+        @inputDate(myForm("date"),'_label->"ว/ด/ป")
+        @inputFile(myForm("picture"),'_label->"รูปภาพประกอบ")
+        <input type="submit" value="บันทึก" class="btn-success">
+        <input type="reset" value="ลบข้อมูล" class="btn-danger">
+        }
+
+    </body>
+</html>

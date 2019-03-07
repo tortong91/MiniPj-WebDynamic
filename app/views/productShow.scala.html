@@ -1,0 +1,69 @@
+@(show:List[ProductPhone])
+<html>
+    <head>
+        <title>
+            Sumsung
+        </title>
+    </head>
+    ​
+    <body>
+<div class="row">
+
+
+            @if(session.get("position")=="Admin"){
+                @for(s<-show){
+                    <div class="card" style="width:230px">
+                <img class="card-img-top" src="/assets/images/path_sumsung/@s.getPicture" alt="Card image" width="230" height="230">
+                <div class="card-body">
+                    <h4 class="card-title"><b>@s.getBrand.getName @s.getName</b></h4>
+                    <p class="card-text">
+                        <font color="blue ">ราคากลาง @s.getPrice บาท<br></font>
+                    </p>
+                    <a href="/editproduct/@s.getId" class="btn btn-primary" style="width: 90%;"><span class="glyphicon glyphicon-cog">
+
+                    </span> แก้ไข</a>
+                    <a href="/deleteproduct/@s.getId" class="btn btn-danger" style="width: 90%;"><span class="glyphicon glyphicon-trash">
+
+                    </span> ลบ</a>
+                </div>
+            </div>&nbsp;}
+            }else{
+                @if(session.get("position")=="User"){
+                    @for(s<-show){
+
+                    <div class="card" style="width:230px">
+
+                        <img class="card-img-top" src="/assets/images/path_sumsung/@s.getPicture" alt="Card image" width="230" height="230">
+                        <div class="card-body">
+                            <h4 class="card-title"><b>@s.getBrand.getName @s.getName</b></h4>
+                            <p class="card-text">
+                                <font color="blue ">ราคากลาง @s.getPrice บาท<br></font>
+                            </p>
+                             <a href="/addOrder/@s.getId" class="btn btn-danger" style="width: 90%;"> <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                            <a href="/detailsproductPhone/@s.getId" class="btn btn-primary" style="width: 90%;">ดูรายละเอียด</a>
+                        </div>
+                    </div>&nbsp;}
+                }else{
+                    @for(s<-show){
+
+                <div class="card" style="width:230px">
+
+                    <img class="card-img-top" src="/assets/images/path_sumsung/@s.getPicture" salt="Card image" width="230" height="230">
+                    <div class="card-body">
+                        <h4 class="card-title"><b>@s.getBrand.getName @s.getName</b></h4>
+                        <p class="card-text">
+                            <font color="blue ">ราคากลาง @s.getPrice บาท<br></font>
+                        </p>
+
+                        <a href="/detailsproductPhone/@s.getId" class="btn btn-primary" style="width: 90%;">ดูรายละเอียด</a>
+                    </div>
+                </div>&nbsp; }
+            }
+            }
+
+
+
+
+</div>
+    </body>
+</html>

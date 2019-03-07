@@ -1,0 +1,59 @@
+@(myForm:Form[ProductPhone],bList:List[Brand])
+@import helper._;
+<html>
+    <head>
+        <title>
+            สินค้ามาใหม่
+        </title>
+        <link href="/assets/stylesheets/bootstrap3/css/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="/assets/stylesheets/bootstrap4/css/bootstrap.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+    @if(flash.containsKey("Error")){
+        <div class="alert alert-danger">
+            <strong>เกิดข้อผิดพลาด</strong> @flash.get("Error")
+        </div>}
+        <center><h2><font style="color: #9acfea;"><b>เพิ่มสินค้า</b></font></h2></center>
+        <center><h5><font style="color: red;"><b>**เพิ่มข้อมูลโทรศัพท์มือถือได้</b></font></h5></center>
+        <br>
+    @helper.form(action = routes.productPhoneController.input() ,'class->"form-group", 'enctype->"multipart/form-data"){
+        @inputText(myForm("id"), '_label->"หมายเลขเครื่อง", 'size->"10" ,'maxlength->"4" )
+        <a href="/addbrand">เพิ่มนี้ห้อ</a>
+        @select(myForm("brand.id"),options=bList.map(fac=>fac.getId->fac.getName ),'_label->"เลือกยี้ห้อ")
+        @inputText(myForm("name"),'_label->"ชื่อรุ่น",'size->"60",'maxlength->"50",'required->"required",'Placeholder->"**ใส่ชื่อรุ่นเช่น Sumsung จะมีรุ่น J2")
+        @inputText(myForm("price"),'_label->"ราคากลาง",'size->"60",'maxlength->"50",'required->"required")
+            @select(myForm("details2"),options = Seq("ความจำเครื่อง 8Gb"->"ความจำเครื่อง 8Gb"
+                ,"ความจำเครื่อง 8Gb "->"ความจำเครื่อง 8Gb"
+                ,"ความจำเครื่อง 16Gb "->"ความจำเครื่อง 16Gb "
+                ,"ความจำเครื่อง 16Gb"->"ความจำเครื่อง 16Gb "
+                ,"ความจำเครื่อง 64Gb"->"ความจำเครื่อง 64Gb "),'_label->"ความจำเครื่อง / ใส่การ์ดได้สูงสุด")
+            @inputDate(myForm("details"),'_label->"วันที่นำเข้า")
+        @select(myForm("details3"),options = Seq("---None---"->"---None---"
+            ,"ROM 8 GB "->"ROM 8 GB"
+            ,"ROM 16 GB "->"ROM 16 GB "
+            ,"ROM 64GB"->"ROM 64GB"
+            ,"ROM 128GB"->"ROM 128GB "),'_label->"ความจำเครื่อง")
+                @inputText(myForm("width"),'_label->"ขนาดหน้าจอ",'size->"60",'maxlength->"50",'required->"required")
+
+                @select(myForm("ram"),options = Seq("1 GB"->"1 GB","2 GB"->"2 GB","3 GB"->"3 GB","4 GB"->"4 GB","5 GB"->"5 GB"))
+        @inputText(myForm("details1"),'_label->"สี",'size->"60",'maxlength->"50")
+
+
+
+         <!--   <font style="font-size: 10pt;"><strong><u>ข้อมูลกล้อง</u></strong></font>-->
+            @inputText(myForm("camera"),'_label->"ความคมชัดกล้องหน้า",'size->"60",'maxlength->"50",'required->"required")
+        @inputText(myForm("Langues"),'_label->"ความคมชัดกล้องหลัง",'size->"60",'maxlength->"50",'required->"required")
+            @textarea(myForm("details2"),'_label->"ฟังก์ชั่นเพิ่มเติม",'rows->"10",'cols->"70")
+
+
+
+
+
+        @inputFile(myForm("picture"),'_label->"รูปภาพประกอบ")
+        <input type="submit" value="บันทึก" class="btn-success">
+        <input type="reset" value="ลบข้อมูล" class="btn-danger">
+
+               }
+
+    </body>
+</html>

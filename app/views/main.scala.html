@@ -1,0 +1,43 @@
+@(show:List[ProductNews])
+<html>
+    <head>
+        <TITLE>
+            Detail Shop.
+        </TITLE>
+        <style type="text/css">
+        body{
+        font-size: 13pt;
+        }
+        </style>
+    </head>
+    <body>
+
+           <div class="row">
+                <div class="col-md-12" style="background-color: white;">
+                    <center><h2><font style="color: #9acfea;"><b>โปรโมชั่น</b></font></h2></center>
+                    <center><h5><font style="color: red;"><b>**จะมีโปรโมชั่นมาอัพเดททุกๆเทศกาล</b></font></h5></center>
+                    <br>
+                    <div style="width: 100%">
+                     @for(s<-show){
+                         <a href="/editnews/@s.getNumber"><span class="glyphicon glyphicon-cog"></span></a>
+                         <a href="/delectnews/@s.getNumber"><span class="glyphicon glyphicon-trash" style="color: #c12e2a;"></span></a>
+                                    <img src="/assets/images/path_news/@s.getPicture" alt="Los Angeles" width="100%" height="auto" >
+                         <p style="color: red;">@s.getDate</p>
+                         @s.getDetails<br>
+                         <hr size="100%">
+                                    </div>
+
+                                }
+
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+
+    </body>
+</html>

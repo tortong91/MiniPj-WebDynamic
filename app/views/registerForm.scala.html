@@ -1,0 +1,70 @@
+@(myForm:Form[User])
+@import helper._;
+<html>
+    <head>
+        <title>
+            สมัครสมาชิก
+        </title>
+        <style type="text/css">
+            body {
+                background-image: url("assets/images/Register-button.jpg");
+                no-repeat;
+                -webkit-background-size: cover;
+                background-size: cover;
+               color:blue;
+
+
+            } .center-Form{
+                              position: absolute;
+                              top: 50%;
+                              left: 50%;
+                              height: 100px;
+                              margin-top: -50px;
+                              width: 250px;
+                              margin-left: -125px
+                          }
+            .transbox {
+                        width: 40%;
+                      background-color: #ffffff;
+                      border: 1px solid black;
+                      opacity: 0.9;
+                      filter: alpha(opacity=60); /* For IE8 and earlier */
+                                  margin-left:auto;
+                                  margin-right:auto;
+                    margin-top: 40px;
+
+
+
+              }
+
+        </style>
+        <link href="/assets/stylesheets/bootstrap3/css/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="/assets/stylesheets/bootstrap4/css/bootstrap.css" rel="stylesheet" type="text/css">
+    </head>
+    <body><div class=""><br>
+        <div  class="transbox"> <br>   <a href="/" onclick="localhost.href='@routes.Application.index()"><span class="glyphicon glyphicon-remove" style="float: right; color: #c12e2a; font-size: 10pt; margin-right: 10px;"></span></a> &nbsp;<br>
+        <CENTER><h2>ระบบสมัครสมาชิก</h2></CENTER>
+        <CENTER><p style="color: red;">**กรุณากรอกข้อมูลให้ครบถ้วน</p></CENTER>
+<div style="margin-left: 30px;" padding:0 30px 0 0;>
+
+    @helper.form(action = routes.userController.input() ,'enctype->"multipart/form-data" ){
+        @inputText(myForm("id"),'_label->"รหัสบัตรประจำตัวประชาชน",'size->"40",'maxlength->"50",'required->"required",'class->"form-control")
+        @inputText(myForm("username"),'_label->"ชื่อผู้ใช้",'placeholder->"***จำเป็น",'size->"40",'maxlength->"39",'required->"required",'class->"form-control")
+        @inputPassword(myForm("password"),'_label->"รหัสผ่าน",'placeholder->"***จำเป็น",'size->"40",'maxlength->"39",'required->"required",'class->"form-control")
+        @inputText(myForm("name"),'_label->"ชื่อ-นามสกุล",'placeholder->"***จำเป็น",'size->"40",'maxlength->"50",'required->"required",'class->"form-control")
+        @inputText(myForm("age"),'_label->"อายุ",'size->"40",'maxlength->"2",'required->"required",'class->"form-control")
+        @inputText(myForm("lastname"),'_label->"อีเมลย์",'size->"40",'maxlength->"39",'required->"required",'class->"form-control")
+        @inputText(myForm("address"),'_label->"ที่อยู่",'placeholder->"***จำเป็น",'rows->"40",'cols->"50",'required->"required",'class->"form-control")
+        @inputText(myForm("tel"),'_label->"เบอร์โทรศัพท์",'size->"40",'placeholder->"***จำเป็น",'maxlength->"50",'required->"required",'class->"form-control")
+
+
+        <input type="submit" value="บันทึก" class="btn-success">
+        <input type="reset" value="ลบข้อมูล" class="btn-danger">
+
+        <br>
+
+        }</div><br>
+</div>
+    </div>
+    </body>
+</html>

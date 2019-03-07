@@ -1,0 +1,60 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index()
+POST     /submitLogin                controllers.Application.login()
+GET     /logout                           controllers.Application.logout()
+GET     /login                           controllers.Application.loginForm()
+#news
+GET     /showlist1                           controllers.ProduceNewsController.showlist()
+GET     /addnews                            controllers.ProduceNewsController.add()
+GET     /editnews/:id                            controllers.ProduceNewsController.edit(id:String)
+GET     /delectnews/:id                            controllers.ProduceNewsController.delete(id:String)
+POST     /updatenews                            controllers.ProduceNewsController.update()
+POST     /inputnews                            controllers.ProduceNewsController.input()
+#Register
+GET     /showlist                               controllers.userController.showlist()
+GET     /add                                    controllers.userController.add()
+GET     /edit/:id                                    controllers.userController.edit(id:String)
+GET     /delete/:id                                    controllers.userController.delete(id:String)
+POST    /update                                 controllers.userController.update()
+POST    /input                                 controllers.userController.input()
+#Sumsung
+GET     /showlistproduct                                   controllers.productPhoneController.showlist()
+GET     /detailsproductPhone/:id                                     controllers.productPhoneController.detailsp(id:String)
+GET     /addproduct                                  controllers.productPhoneController.add()
+GET     /editproduct/:id                              controllers.productPhoneController.edit(id:String)
+GET     /deleteproduct/:id                                   controllers.productPhoneController.delete(id:String)
+POST    /inputsumsung                                 controllers.productPhoneController.input()
+POST    /updatesumsung                                controllers.productPhoneController.update()
+#Brands
+GET         /showbrand                              controllers.brandController.showlist()
+GET         /addbrand                              controllers.brandController.add()
+GET         /editbrand/:id                              controllers.brandController.edit(id:String)
+GET         /deletebrand/:id                              controllers.brandController.delete(id:String)
+POST        /updatebrand                            controllers.brandController.update()
+POST        /inputbrand                            controllers.brandController.input()
+
+GET     /dataBrand/:id                    controllers.productPhoneController.brandList(id:String)
+
+#ตะกร้าสินค้า
+GET     /basketSell         controllers.castController.basketSell()
+GET     /addOrder/:id         controllers.castController.addOrder(id:String)
+GET     /removeItem/:id        controllers.castController.removeItem(id:String)
+GET     /checkBill         controllers.castController.checkBill()
+GET     /saveBill         controllers.castController.saveBill()
+
+
+
+
+
+
+GET     /contect             controllers.Application.contect()
+GET     /about             controllers.Application.about()
+
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

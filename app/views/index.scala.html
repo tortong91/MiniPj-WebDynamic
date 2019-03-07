@@ -1,0 +1,181 @@
+@(content:Html)
+<html>
+    <head>
+        <title>Mini Mobile Shop.</title>
+        <link href="/assets/stylesheets/bootstrap3/css/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="/assets/stylesheets/bootstrap4/css/bootstrap.css" rel="stylesheet" type="text/css">
+        <style type="text/css">
+            body{
+                font-size: 10pt;
+            }
+            footer{
+                background-color: black;
+                color: white;
+                padding: 10px;
+
+                margin: 0 auto;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body >
+        <div class="container" >
+            @if(session.get("position")=="Admin"){
+            <div class="row">
+                <div class="col-md-12">
+                </div><IMG SRC="/assets/images/miniheader.png" width="100%;" height="300px;">
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-pills" style="background-color: white;" style="background-color: silver;">
+                        <li role="presentation" class="active"><a href="/">หน้าแรก</a></li>
+                        <li role="presentation"><a href="/showlist1"><span class="glyphicon glyphicon-home"></span> โปรโมชั่น</a></li>
+                        <li role="presentation"><a href="/about"><span class="glyphicon glyphicon-briefcase"></span> เกี่ยวกับร้านค้า</a></li>
+                        <li role="presentation"><a href="/contect"><span class="glyphicon glyphicon-envelope"></span> ติดต่อ</a></li>
+                        <li role="presentation"><a href="/addproduct"><span class="glyphicon glyphicon-cog"></span> จัดการสินค้า</a></li>
+                        <li role="presentation"><a href="/addbrand"><span class="glyphicon glyphicon-cog"></span> จัดการยี้ห้อมือถือ</a></li>
+                        <li role="presentation"><a href="/addnews"><span class="glyphicon glyphicon-cog"></span> จัดการโปรโมชั่น</a></li>
+                        <li role="presentation" style="float: right;"><font style="margin-left:10px; padding: 10 0 10px 0px; line-height: 35px; ">
+                            <b>สวัสดี..</b> <u style="color: #2b669a;">@session.get("name")</u> เจ้าของร้าน <a href="/logout">ออกจากระบบ</a></font>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2" > <br>
+                    <ul class="nav nav-pills nav-stacked" style="display:inline;">
+                        <li role="presentation" class="active"><a href="/">หน้าแรก</a></li>
+                        <li role="presentation"><a href="/dataBrand/S01">Sumsung</a></li>
+                        <li role="presentation"><a href="/dataBrand/H01">Huawei</a></li>
+                        <li role="presentation"><a href="/dataBrand/N01">Nokia</a></li>
+                        <li role="presentation"><a href="/dataBrand/I01">Iphone</a></li>
+                        <li role="presentation"><a href="/dataBrand/V01">Vivo</a></li>
+                    </ul>
+                    <center><img src="/assets/images/social.jpg" width="100px"></center>
+                </div>
+                <div class="col-md-10" >
+
+
+                    <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="color: white;">
+                        BISPhone.
+                    </nav>>
+
+
+                    @content
+                </div>
+                <div class="col-md-12" >
+                    <footer>Website BISPHONECOM 2018.<br>
+                        bis4q. MiniDynamic Project.
+                    </footer>
+                </div>
+            </div>
+            }else{
+                @if(session.get("position")=="User"){
+                    <div class="row">
+                        <div class="col-md-12">
+                        </div><IMG SRC="/assets/images/miniheader.png" width="100%;" height="300px;">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ul class="nav nav-pills" style="background-color: white;" style="background-color: silver;">
+                                <li role="presentation" class="active"><a href="/">หน้าแรก</a></li>
+                                <li role="presentation"><a href="/showlist1"><span class="glyphicon glyphicon-home"></span> โปรโมชั่น</a></li>
+                                <li role="presentation"><a href="/about"><span class="glyphicon glyphicon-briefcase"></span> เกี่ยวกับร้านค้า</a></li>
+                                <li role="presentation"><a href="/contect"><span class="glyphicon glyphicon-envelope"></span> ติดต่อ</a></li>
+                                   <li role="presentation" style="float: right;"><font style="margin-left:10px; padding: 10 0 10px 0px; line-height: 35px; ">
+                                    <b>สวัสดี..</b> <u style="color: #2b669a;">@session.get("name")</u> ลูกค้า <a href="/logout">ออกจากระบบ</a></font>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2" > <br>
+                            <ul class="nav nav-pills nav-stacked" style="display:inline;">
+                                <li role="presentation" class="active"><a href="/">หน้าแรก</a></li>
+                                <li role="presentation"><a href="/dataBrand/S01">Sumsung</a></li>
+                                <li role="presentation"><a href="/dataBrand/H01">Huawei</a></li>
+                                <li role="presentation"><a href="/dataBrand/N01">Nokia</a></li>
+                                <li role="presentation"><a href="/dataBrand/I01">Iphone</a></li>
+                                <li role="presentation"><a href="/dataBrand/V01">Vivo</a></li>
+                            </ul   >
+                            <center><img src="/assets/images/social.jpg" width="100px"></center>
+                        </div>
+                        <div class="col-md-10" >
+                            <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="color: white;">
+                                BISPhone.
+                            </nav>
+
+                            <p>@content</p>
+                        </div>
+                        <div class="col-md-12" >
+                            <footer>Website BISPHONECOM 2018.<br>
+                                bis4q. MiniDynamic Project.
+                            </footer>
+                        </div>
+                    </div>
+
+
+                }else{
+
+                <div class="row">
+                    <div class="col-md-12">
+                    </div><IMG SRC="/assets/images/miniheader.png" width="100%;" height="300px;">
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="nav nav-pills" style="background-color: white;" style="background-color: silver;">
+                            <li role="presentation" class="active"><a href="/">หน้าแรก</a></li>
+                            <li role="presentation"><a href="/showlist1"><span class="glyphicon glyphicon-home"></span> โปรโมชั่น</a></li>
+                            <li role="presentation"><a href="/about"><span class="glyphicon glyphicon-briefcase"></span> เกี่ยวกับร้านค้า</a></li>
+                            <li role="presentation"><a href="/contect"><span class="glyphicon glyphicon-envelope"></span> ติดต่อ</a></li>
+                            <li role="presentation"><a href="/login"><span class="glyphicon glyphicon-insert"></span> เข้าสู่ระบบ</a></li>
+                            <li role="presentation"><a href="/add"><span class="glyphicon glyphicon-add"></span> สมัครสมาชิก</a></li>
+
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2" > <br>
+                        <ul class="nav nav-pills nav-stacked" style="display:inline;">
+                            <li role="presentation" class="active"><a href="/">หน้าแรก</a></li>
+                            <li role="presentation"><a href="/dataBrand/S01">Sumsung</a></li>
+                            <li role="presentation"><a href="/dataBrand/H01">Huawei</a></li>
+                            <li role="presentation"><a href="/dataBrand/N01">Nokia</a></li>
+                            <li role="presentation"><a href="/dataBrand/I01">Iphone</a></li>
+                            <li role="presentation"><a href="/dataBrand/V01">Vivo</a></li>
+                        </ul   >
+                        <center><img src="/assets/images/social.jpg" width="100px"></center>
+                    </div>
+                    <div class="col-md-10" >
+                        <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="color: white;">
+                                <!-- Brand/logo -->
+                                BISPhone.
+                        </nav>
+
+                        <p>@content</p>
+                    </div>
+
+                        <div class="col-md-12" >
+                            <footer>Website BISPHONECOM 2018.<br>
+                                bis4q. MiniDynamic Project.
+                            </footer>
+                        </div>
+                </div>
+                }
+            }
+
+
+
+
+        </div>
+
+    </body>
+</html>
+

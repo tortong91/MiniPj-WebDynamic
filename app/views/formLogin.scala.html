@@ -1,0 +1,27 @@
+
+<div class="panel panel-default" style="width: 80%;">
+    <div class="panel-heading">
+        <center> <h1 style="color: #2aabd2;">เข้าสู่ระบบ</h1></center>
+        <p style="color:red;">**เข้าสู่ระบบเพื่อเข้ามาจัดการข้อมูลมือถือ</p>
+    </div>
+    <div class="panel-body">
+
+        <form action="/submitLogin" method="post">
+            <div class="form-group">
+                <label for="text">Username:</label>
+                <input type="text" class="form-control" name="user">
+            </div>
+            <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" name="pass">
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox"> Remember me</label>
+            </div>
+            <input type="submit" value="LOGIN" class="btn btn-default">
+            <a href="/add"> <input type="button" value="Register" class="btn btn-default"></a>
+
+        </form>
+
+    </div>
+</div>

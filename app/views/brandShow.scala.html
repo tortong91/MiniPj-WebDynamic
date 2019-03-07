@@ -1,0 +1,31 @@
+@(show:List[Brand])
+<html>
+    <head>
+        <title>
+            Brands.
+        </title>
+    </head>
+    <body>
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th>ภาพประกอบ</th>
+                    <th>ชื่อแบรนต์</th>
+
+                </tr>
+            </thead>
+            @for(s<-show){
+            <tbody>
+                <tr>
+                    <td><img src="/assets/images/path_brand/@s.getPicture" width="150px"> </td>
+                    <td><font color="black"><b>@s.getName</b></font></td>
+                    <td>
+                       <a href="/editbrand/@s.getId"> <span class="glyphicon glyphicon-cog"></span>
+                           <a href="/deletebrand/@s.getId"> <span class="glyphicon glyphicon-remove"></span></a></td>
+
+                </tr>
+
+            </tbody>}
+        </table>
+    </body>
+</html>

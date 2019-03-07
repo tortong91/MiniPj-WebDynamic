@@ -1,0 +1,39 @@
+@(myForm:Form[ProductPhone],bList:List[Brand])
+@import helper._;
+<html>
+    <head>
+        <title>
+            สินค้ามาใหม่
+        </title>
+    </head>
+    <body>
+    @if(flash.containsKey("Error")){
+        <div class="alert alert-danger">
+            <strong>เกิดข้อผิดพลาด</strong> @flash.get("Error")
+        </div>}
+    @helper.form(action = routes.productPhoneController.update() ,'enctype->"multipart/form-data"){
+        @inputText(myForm("id"), '_label->"หมายเลขเครื่อง", 'size->"10" ,'maxlength->"4" ,'required->"required")
+        @select(myForm("brand.id"),options=bList.map(fac=>fac.getId->fac.getName))
+        @inputText(myForm("name"),'_label->"ชื่อรุ่น",'size->"60",'maxlength->"50",'required->"required")
+        @inputText(myForm("price"),'_label->"ราคา",'size->"60",'maxlength->"50",'required->"required")
+        @textarea(myForm("details"),'_label->"ข้อมูลเครื่อง(ข้อมูลความระเอียดกล้องหน้า/หลัง, ขนาดจอ ,การรองรับชิมการ์ด, อื่น ๆ)",'rows->"10",'cols->"70",'required->"required")
+        @select(myForm("details2"),options = Seq("ความจำเครื่อง 8Gb สามารถใส่mEmoryCardได้สูงสุด 64 GB"->"ความจำเครื่อง 8Gb สามารถใส่mEmoryCardได้สูงสุด 64 GB"
+            ,"ความจำเครื่อง 8Gb สามารถใส่mEmoryCardได้สูงสุด 128 GB"->"ความจำเครื่อง 8Gb สามารถใส่mEmoryCardได้สูงสุด 128 GB"
+            ,"ความจำเครื่อง 16Gb สามารถใส่mEmoryCardได้สูงสุด 64 GB"->"ความจำเครื่อง 16Gb สามารถใส่mEmoryCardได้สูงสุด 64 GB"
+            ,"ความจำเครื่อง 16Gb สามารถใส่mEmoryCardได้สูงสุด 128 GB"->"ความจำเครื่อง 16Gb สามารถใส่mEmoryCardได้สูงสุด 128 GB"
+            ,"ความจำเครื่อง 64Gb สามารถใส่mEmoryCardได้สูงสุด 128 GB"->"ความจำเครื่อง 64Gb สามารถใส่mEmoryCardได้สูงสุด 128 GB"))
+        @select(myForm("details3"),options = Seq("แบตเตอรี่มาตรฐาน 2,300 mAh (Standard Battery)"->"แบตเตอรี่มาตรฐาน 2,300 mAh (Standard Battery)"
+            ,"แบตเตอรี่มาตรฐาน 3,300 mAh (Standard Battery)"->"แบตเตอรี่มาตรฐาน 3,300 mAh (Standard Battery)"
+            ,"แบตเตอรี่มาตรฐาน 4,300 mAh (Standard Battery)"->"แบตเตอรี่มาตรฐาน 4,300 mAh (Standard Battery)"
+            ,"แบตเตอรี่มาตรฐาน 6,300 mAh (Standard Battery)"->"แบตเตอรี่มาตรฐาน 6,300 mAh (Standard Battery)"
+            ,"แบตเตอรี่มาตรฐาน 11,300 mAh (Standard Battery)"->"แบตเตอรี่มาตรฐาน 11,300 mAh (Standard Battery)"))
+        @textarea(myForm("details3"),'_label->"ฟังก์ชั่นพื้นฐาน",'rows->"10",'cols->"70")
+        @select(myForm("details1"),options = Seq(""->"สีเหลือง","สีเแดง"->"สีแดง","สีเดำ"->"สีดำ","สีเขาว"->"สีเขาว","สีเทอง"->"สีเทอง"))
+
+        @inputFile(myForm("picture"),'_label->"รูปภาพประกอบ")
+        <input type="submit" value="บันทึก" class="btn-success">
+        <input type="reset" value="ลบข้อมูล" class="btn-danger">
+        }
+
+    </body>
+</html>

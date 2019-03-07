@@ -1,0 +1,64 @@
+@(show:ProductPhone)
+<html>
+    <head>
+        <title>
+            Sumsung
+        </title>
+        <link href="/assets/stylesheets/bootstrap3/css/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="/assets/stylesheets/bootstrap4/css/bootstrap.css" rel="stylesheet" type="text/css">
+    </head>
+    <body><br>
+        <center><h2><font style="color: #9acfea;"><b>Detail BISPHONE</b></font></h2></center>
+        <center><h5><font style="color: red;"><b>**ดูรายละเอียดของสินค้า</b></font></h5></center>
+        <br>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8" align="center">
+    <div class="panel panel-default" style="width: 100%;">
+        <div class="panel-body"><center><h1>@show.getBrand.getName @show.getName</h1></center>
+            <center><img src="/assets/images/path_sumsung/@show.getPicture" width="400px"></center><br><br>
+            <h3><strong>ข้อมูลมือถือ</strong></h3>
+
+            <table class="table">
+                <tr >
+                    <td>
+
+                    </td>
+                    <td>
+                        <div class="alert alert-primary" role="alert">
+                            <font style="font-size: 10pt;"><strong><u>ราคาของสินค้าในแต่ละร้านค้า</u></strong></font><br>
+ชื่อ :@show.getBrand.getName @show.getName<br>
+ราคา :@show.getPrice<br>
+วันที่นำเข้า :@show.getDetails<br>
+หน่วยความจำภายใน : @show.getDetails3<br>
+แรม :@show.getRam
+</div>
+
+    <div class="alert alert-primary" role="alert">
+        <font style="font-size: 10pt; float: left;"><strong><u>ข้อมูลกล้อง</u></strong></font><br>
+        @show.getCamera ล้านพิกเชล.<br>
+        @show.getLangue ล้านพิกเชล.<br>
+        @show.getDisplay นิ้ว<br>
+        @show.getDetails2
+    </div>
+
+</td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+
+
+
+
+
+            </div>
+
+</div>
+        <div class="col-md-2"></div>
+        <br><br><br><br><br><br>
+
+    </body>
+</html>

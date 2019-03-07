@@ -1,0 +1,24 @@
+@(myForm:Form[User])
+@import helper._;
+<html>
+    <head>
+        <title>
+            สมัครสมาชิก
+        </title>
+    </head>
+    <body>
+        <CENTER><h2>ระบบสมัครสมาชิก</h2></CENTER>
+        <CENTER><p style="color: red;">**กรุณากรอกข้อมูลให้ครบถ้วน</p></CENTER>
+    @helper.form(action = routes.userController.input() ,'enctype->"multipart/form-data"){
+        @inputText(myForm("name"),'_label->"ชื่อ-นามสกุล :",'size->"60",'maxlength->"50",'required->"required")
+        @inputText(myForm("age"),'_label->"อายุ",'size->"3",'maxlength->"2",'required->"required")
+        @inputText(myForm("lastname"),'_label->"อีเมลย์",'size->"40",'maxlength->"39",'required->"required")
+        @inputText(myForm("username"),'_label->"ชื่อผู้ใช้",'size->"40",'maxlength->"39",'required->"required")
+        @inputText(myForm("password"),'_label->"รหัสผ่าน",'size->"40",'maxlength->"39",'required->"required")
+
+
+        <input type="submit" value="บันทึก" class="btn-success">
+        <input type="reset" value="ลบข้อมูล" class="btn-danger">
+        }
+    </body>
+</html>
